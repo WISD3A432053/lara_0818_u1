@@ -11,6 +11,8 @@
 |
 */
 
+Route::auth();
+
 use App\Http\Middleware\CheckAge;
 
 Route::get('/', function () {
@@ -25,4 +27,14 @@ Route::get('/tracy', function () {
 Route::get('/middleware', function () {
     return view('welcome');
 })->middleware(CheckAge::class);
+
+Route::get('mail','MailController@getSend');
+
+Route::get('/home',['as'=>'home',function(){
+    return view('home');
+}]);
+
+
+
+
 
